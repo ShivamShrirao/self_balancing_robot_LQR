@@ -1,0 +1,514 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb,amsmath,latexsym,enumerate}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{gensymb}
+\usepackage{graphicx,graphics}%,floatflt}
+\usepackage{exscale,cmmib57,mathrsfs}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amsthm}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\setlength{\parskip}{1\parskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{plain}{
+\fancyhf{}
+\rfoot{\thepage}
+\fancyfootoffset{0pt}
+}
+\makeatother
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage}
+\fancyfootoffset{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\geometry{a4paper,total={170mm,257mm},left=40mm,top=60mm,bottom=18mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%WATERMARK SETTINGS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[printwatermark]{xwatermark}
+\usepackage{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkHorCenter{13cm}
+\SetWatermarkVerCenter{17.3cm}
+\SetWatermarkText{\includegraphics[width=21cm,height=30cm]{WaterMark.png}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{eYRC\#2586} % Your name
+\vspace{0.5cm}
+\date{\normalsize\today} % Today's date or a custom date
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{qstn}{Q}
+\newcommand{\BQ}{\begin{qstn}\rm}
+\newcommand{\EQ}{\end{qstn}}
+\newtheorem{answ}{A}
+\newcommand{\BA}{\begin{answ}\rm}
+\newcommand{\EA}{\end{answ}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+	\bf \Huge \underline{\textbf{Biped Patrol}} \\
+	\vspace{5mm}
+	\Large \underline {\textbf{Task 3.3: Think \& Answer}}\\
+\end{center}
+\vspace{5mm}
+\begin{center}
+	\begin{tabular}{|p{5cm}|p{10cm}|}
+		\hline
+		Team Id & eYRC\#2586 \\
+		\hline
+		College &  Dr. Vishwanath Karad MIT World Peace University \\
+		\hline
+		Team Leader Name & Aditya Kore \\
+		\hline
+		e-mail & adityakore16@gmail.com \\
+		\hline
+		Date & \today \\
+		\hline
+	\end{tabular}
+\end{center}
+\vspace{25mm}
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Question No. & Max. Marks & Marks Scored \\
+		\hline
+		Q1 &  10 & \\
+		\hline
+		Q2 &  20 & \\
+		\hline
+		Q3 &  5 & \\
+		\hline
+		Q4 &  5 & \\
+		\hline
+		Q5 &  5 & \\
+		\hline
+		Q6 &  10 & \\
+		\hline
+		Q7 &  15 & \\
+		\hline
+		Q8 &  8 & \\
+		\hline
+		Q9 &  4 & \\
+		\hline
+		Q10 &  8 & \\
+		\hline
+		Q11 &  10 & \\
+		\hline
+		Total &  100 & \\
+		\hline
+	\end{tabular}
+\end{center}
+\newpage 
+\begin{center}
+\bf \Huge \underline{\textbf{Biped Patrol}} \\
+\vspace{5mm}
+\Large \underline {\textbf{Task 3.3: Think \& Answer}}\\
+\end{center}
+\vspace{1cm}
+\textbf{Instructions:}
+\begin{itemize}
+	\item There are no negative marks.
+	\item Unnecessary explanation will lead to less marks even if answer is correct.
+	\item If required, draw the image in a paper with proper explanation and add the snapshot in your corresponding answer.
+\end{itemize}
+\vspace{0.5cm}
+\hrule height 0.5mm
+\vspace{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\BQ
+Describe hardware design for the Medbot, your team is constructing. Describe various parts with well labeled image. Give reasons for selection of design.\hfill[10]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+Hardware Design\\
+\hspace*{30mm}\includegraphics[width=0.715\textwidth]{Medbot}\\
+We want the center of mass to be higher because having higher center of mass gives us more time to detect the fall and adjust the tilt accordingly. The Lipo battery has highest weight among the components so it's kept at highest point. The Arduino mega and XBee are kept at middle, with electromagnets placed on both sides, to pick multiple items at once and keep center of gravity along the central axis through pivot point at appropriate height so as to pickup supply items. And the motor driver and motors are at the bottom.
+
+\EA
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+In Task 1.2, you were asked to model different systems such as Simple Pulley, Complex Pulley, Inverted Pendulum with and without input and stabilizing the unstable equilibrium point using Pole Placement and LQR control techniques. There you had to choose the states; Derive the equations (usually non-linear), find equilibrium points and then linearize around the equilibrium points. You were asked to find out the linear system represented in the form \\ 
+\begin{equation} \label{Eqn1}
+\dot{X}(t)=AX(t)+BU(t)
+\end{equation}
+
+Where $X(t)$ is a vector of all the state,i.e., $X(t)=[x_1(t),x_2(t),\dots,x_n(t)]^T$, and $U(t)$ is the vector of input to the system, i.e. $U(t)=[u_1(t),u_2(t),\dots,u_m(t)]^T$. $A$ is the State Matrix \& $B$ is the Input Matrix.\\ \newline
+In this question, you have to choose the states for the Medbot you are going to design. Model the system by finding out the equations governing the dynamics of the system using Euler-Lagrange Mechanics. Linearize the system via Jacobians around the equilibrium points representing your physical model in the form given in equation \ref*{Eqn1}. \\
+\textbf{Note:} You may choose symbolic representation such as $M_w$ for Mass of wheel, etc. \hfill [20] 
+
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+Self balancing biped Medbot can be considered as an inverted cart pendulum. Cart comprises of motors and wheels and Pendulum can be considered as centerof mass of all other components like chasis, battery, arduino, Xbee, etc.\\
+\hspace*{48mm}\includegraphics[width=0.6\textwidth]{Medbotcm}\\
+Moment of Inertia of wheel along center axis
+\begin{equation}
+I_w = \dfrac{1}{2}M_wr^2
+\end{equation}
+where\\
+\hspace*{15mm}$M_w$ = Mass of wheel\\
+\hspace*{15mm}$r$ = radius of wheel.
+\\\\
+Torque
+\begin{equation}
+\tau = I_w\alpha
+\end{equation}
+where
+\\
+\hspace*{15mm}$\alpha$ = angular acceleration from motor.\\
+\hspace*{10mm}\includegraphics[width=0.9\textwidth]{fbd}\\
+\hspace*{15mm}$M_c$ = Mass of cart.\\
+\hspace*{15mm}$m$ = Mass of pendulum.\\
+\hspace*{15mm}$g$ = acceleration due to gravity.\\
+\hspace*{15mm}$l$ = distance of center of mass from pivot point.\\
+Force $F$ applied on cart by both wheels.
+\begin{equation*}
+\begin{gathered}
+F = \dfrac{2\tau}{r}\\
+  = \dfrac{2I_w\alpha}{r}\\
+  = \dfrac{2M_wr^2\alpha}{2r}\\
+\end{gathered}
+\end{equation*}
+\begin{equation}
+F = M_wr\alpha
+\end{equation}
+\\
+Potential energy of system.
+\begin{equation}
+P.E. = mglcos\theta
+\end{equation}
+Kinetic Energy of system.
+\begin{equation*}
+\begin{gathered}
+K.E. = \dfrac{1}{2}M_cV^2 + \dfrac{1}{2}mv_p^2
+\end{gathered}
+\end{equation*}
+\begin{equation}
+\dot{x}=V
+\end{equation}
+\begin{equation}
+\dot{\theta}=\omega
+\end{equation}
+\begin{equation}
+K.E. = \dfrac{1}{2}M_c\dot{x}^2 + \dfrac{1}{2}m(\dot{x}-l\dot{\theta}cos\theta)^2 + \dfrac{1}{2}m(-lsin\theta)^2
+\end{equation}
+Lagrangian Equation
+\begin{equation}
+\begin{gathered}
+L = K.E. - P.E.
+\\
+L = \dfrac{1}{2}(M_c+m)\dot{x}^2 + \dfrac{1}{2}ml^2\dot{\theta}^2 - m\dot{x}l\dot{\theta}cos\theta - mglcos\theta
+\end{gathered}
+\end{equation}
+Euler-Lagrange
+\begin{equation*}
+\begin{gathered}
+\dfrac{d}{dt}\Bigg(\dfrac{\partial{L}}{\partial{\dot{x}}}\Bigg) - \dfrac{\partial{L}}{\partial{x}}= 0
+\\
+\dfrac{\partial{L}}{\partial{x}} = 0
+\\
+\dfrac{\partial{L}}{\partial{\dot{x}}} = (M_c+m)\dot{x} - ml\dot{\theta}cos\theta
+\\
+\dfrac{d}{dt}\Bigg(\dfrac{\partial{L}}{\partial{\dot{x}}}\Bigg) = (M_c+m)\ddot{x} - ml\ddot{\theta}cos\theta + ml^2\dot{\theta}sin\theta
+\end{gathered}
+\end{equation*}
+\begin{equation} \label{xeqn}
+\dfrac{d}{dt}\Bigg(\dfrac{\partial{L}}{\partial{\dot{x}}}\Bigg) - \dfrac{\partial{L}}{\partial{x}} = (M_c+m)\ddot{x} - ml\ddot{\theta}cos\theta + ml^2\dot{\theta}sin\theta = F   
+\end{equation}
+where F is force applied on cart. In Medbot this force will be generated from torque by motors and friction from ground.
+\begin{equation*}
+\begin{gathered}
+\dfrac{\partial{L}}{\partial{\theta}} = m\dot{x}l\dot{\theta}sin\theta + mglsin\theta
+\\
+\dfrac{\partial{L}}{\partial{\dot{\theta}}} = ml^2\dot{\theta} - m\dot{x}lcos\theta
+\\
+\dfrac{d}{dt}\Bigg(\dfrac{\partial{L}}{\partial{\dot{\theta}}}\Bigg) = ml^2\ddot{\theta} + ml\dot{x}\dot{\theta}sin\theta - ml\ddot{x}cos\theta
+\\
+\dfrac{d}{dt}\Bigg(\dfrac{\partial{L}}{\partial{\dot{\theta}}}\Bigg) - \dfrac{\partial{L}}{\partial{\theta}} = ml^2\ddot{\theta} - ml\ddot{x}cos\theta - mglsin\theta = 0
+\end{gathered}
+\end{equation*}
+\begin{equation} \label{thteqn}
+l\ddot{\theta} - \ddot{x}cos\theta = gsin\theta
+\end{equation}
+Multiply equation \ref*{thteqn} by $mcos\theta$ both sides.
+\begin{equation} \label{nthteqn}
+ml\ddot{\theta}cos\theta = m\ddot{x}cos^2\theta + mgsin\theta cos\theta
+\end{equation}
+Add equation \ref*{xeqn} and \ref*{nthteqn}:
+\begin{equation*}
+\begin{gathered}
+(M_c+m)\ddot{x} + ml\dot{\theta}^2sin\theta = mgsin\theta cos\theta + m\ddot{x}cos^2\theta + F
+\end{gathered}
+\end{equation*}
+\begin{equation} \label{xddeqn}
+\ddot{x} = \dfrac{F + mgsin\theta cos\theta - ml\dot{\theta}^2sin\theta}{M_c+msin^2\theta}
+\end{equation}
+Put $\ddot{x}$ in equation \ref*{thteqn}:
+\begin{equation*}
+l\ddot{\theta}=\dfrac{gsin\theta(M_c+msin^2\theta)+(F+mgsin\theta cos\theta-ml\dot{\theta}^2sin\theta)cos\theta}{M_c+msin^2\theta}
+\end{equation*}
+\begin{equation} \label{thtddeqn}
+\ddot{\theta}=\dfrac{Fcos\theta-ml^2\dot{\theta}sin\theta cos\theta+(M_c+m)gsin\theta}{l(M_c+msin^2\theta)}
+\end{equation}
+Equilibrium points of this system are $\theta=0$ and $\theta=\pi$.\\
+Calculate Jacobian matrix
+\begin{equation*}
+J_1 = 
+\begin{bmatrix}
+\dfrac{\partial\dot{x}}{\partial x} & \dfrac{\partial\dot{x}}{\partial\dot{x}} & \dfrac{\partial\dot{x}}{\partial\theta} & \dfrac{\partial\dot{x}}{\partial\dot{\theta}}\\\\
+\dfrac{\partial\ddot{x}}{\partial x} & \dfrac{\partial\ddot{x}}{\partial\dot{x}} & \dfrac{\partial\ddot{x}}{\partial\theta} & \dfrac{\partial\ddot{x}}{\partial\dot{\theta}}\\\\
+\dfrac{\partial\dot{\theta}}{\partial x} & \dfrac{\partial\dot{\theta}}{\partial\dot{x}} & \dfrac{\partial\dot{\theta}}{\partial\theta} & \dfrac{\partial\dot{\theta}}{\partial\dot{\theta}}\\\\
+\dfrac{\partial\ddot{\theta}}{\partial x} & \dfrac{\partial\ddot{\theta}}{\partial\dot{x}} & \dfrac{\partial\ddot{\theta}}{\partial\theta} & \dfrac{\partial\ddot{\theta}}{\partial\dot{\theta}}
+\end{bmatrix}
+\end{equation*}
+Put equilibrium point $\theta=0$ in J1 to get A matrix.
+\begin{equation}
+A =
+\begin{bmatrix}
+0 & 1 & 0 & 0\\\\
+0 & 0 & \dfrac{mg}{M_c} & 0\\\\
+0 & 0 & 0 & 1\\\\
+0 & \dfrac{(M_c+m)g}{M_cl} & 0 & 0
+\end{bmatrix}
+\end{equation}
+\begin{equation*}
+J_2 = 
+\begin{bmatrix}
+\dfrac{\dot{x}}{F}\\\\
+\dfrac{\ddot{x}}{F}\\\\
+\dfrac{\dot{\theta}}{F}\\\\
+\dfrac{\ddot{\theta}}{F}
+\end{bmatrix}
+\end{equation*}
+Put equilibrium point $\theta=0$ in J2 to get B matrix.
+\begin{equation}
+B = 
+\begin{bmatrix}
+0\\\\
+\dfrac{1}{M_c}\\\\
+0\\\\
+\dfrac{-1}{M_cl}
+\end{bmatrix}
+\end{equation}
+For Linear System equation put A and B in equation \ref*{Eqn1}:
+\begin{equation}
+\begin{gathered}
+\dot{X}(t)=AX(t)+BU(t)
+\\
+\dot{X}(t)=\begin{bmatrix}
+0 & 1 & 0 & 0\\\\
+0 & 0 & \dfrac{mg}{M_c} & 0\\\\
+0 & 0 & 0 & 1\\\\
+0 & \dfrac{(M_c+m)g}{M_cl} & 0 & 0
+\end{bmatrix}X(t)+\begin{bmatrix}
+0\\\\
+\dfrac{1}{M_c}\\\\
+0\\\\
+\dfrac{-1}{M_cl}
+\end{bmatrix}U(t)
+\end{gathered}
+\end{equation}
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+Equation \ref*{Eqn1} represents a continuous-time system. The equivalent discrete time system is represented as: 
+\begin{equation} \label{Eqn2}
+{X}(k+1)=A_dX(k)+B_dU(k)
+\end{equation}
+
+Where $X(k)$ is a measure of the states at $k_{th}$ sampling instant,i.e., $X(k)=[x_1(k),x_2(k),\dots,x_n(k)]^T$, and $U(k)$ is the vector of input to the system at $k_{th}$ sampling instant, i.e. $U(k)=[u_1(k),u_2(k),\dots,u_m(k)]^T$. $A_d$ is the Discrete State Matrix \& $B_d$ is the Discrete Input Matrix.\\ \newline
+What should be the position of eigen values of $A_d$ for system to be stable.\\
+\textbf{Hint:} In frequency domain, continuous-time system is represented with Laplace transform and discrete-time system is represented with Z transform. \hfill [5]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+
+Discrete-state models are stable if and only if all eigenvalues lie within the circle with the radius of 1 in the complex plain. If the magnitude of the eigenvalues of the Discrete State Matrix $A_d$ is greater than 1, the system is unstable.
+
+
+\EA
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+Will LQR control always work? If No, then why not? and if Yes, Justify your answer.\\
+\textbf{Hint:} Take a look at definition of Controllable System. What is controllability? \hfill [5]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+In LQR the solution is obtained under assumption that final state is reachable from the initial state. If correct model of system is available, it can be stabilized and will be controllable. If desired final state is not reachable, LQR will not work.
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+For balancing robot on two wheel i.e. as inverted pendulum, the center of mass should be made high or low? Justify your answer. \hfill[5]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+To balance the robot and make system controllable, center of mass should be above the pivot point. Having high center of mass will give you more time and it will be easy to detect change in angle. If center of mass is low it will topple off very easily. In equation \ref*{thtddeqn} it can be seen that $\ddot{\theta}$ is inversely proportional to $l$. So having larger $l$ will give smaller $\ddot{\theta}$, which means pendulum will move slower, giving more time to detect and get back to equilibrium. Just it will require more torque for larger $l$.
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+Why do we require filter? Do we require both the gyroscope and the accelerometer for measuring the tilt angle of the robot? Why? \hfill[10]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+Filter can be used to filter out or remove the unwanted components or features from signal.
+The accelerometer measures both linear and gravitational acceleration. We can filter out the dynamic accelerations caused by motion using low pass filter but it will have slow response time. The gyroscope measures rotational velocity or rate of change of the angular position over time but it is subjected to drift over time. So by combining both by using complementary filter for example, we can calculate the tilt angle of robot very accurately.
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+What is Perpendicular and Parallel axis theorem for calculation of Moment of Inertia? Do you require this theorem for modelling the Medbot?Explain Mathematically.  \hfill[15]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+Perpendicular axis theorem: For a planar object, the moment of inertia about an axis perpendicular to the plane is the sum of the moments of inertia of two perpendicular axes through the same point in the plane of the object.
+\begin{equation*}
+    I_z = I_x + I_y
+\end{equation*}
+Parallel axis theorem: Moment of inertia along rotation axis is the sum of moment of inertia through center of mass and product of mass and square of perpendicular distance between center of mass and rotation axis.
+\begin{equation*}
+    I_p = I_{cm} + Md^2
+\end{equation*}
+\\
+These theorems are used to find moment of inertia around a new rotation axis.\\
+We have calculated moment of Inertia of a wheel as
+\begin{equation*}
+    I_w = \dfrac{1}{2}Mr^2
+\end{equation*}
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+What will happen in the following situations:
+\begin{enumerate}[(a)]
+	\item Medbot picks a First-Aid Kit from the shelf of Medical Store but the First-Aid Kit falls inside the store. Will there be any penalty imposed, points awarded? Will the First-Aid Kit be repositioned?\hfill[2] 
+	\item Medbot picks a First-Aid Kit from the shelf of Medical Store but the First-Aid Kit falls outside the store. Will there be any penalty imposed, points awarded? Will the First-Aid Kit be repositioned?\hfill[2]
+	\item Medbot picks a First-Aid Kit from the shelf of Medical Store but the First-Aid Kit and the Medbot both fall inside the store. Will there be any penalty imposed, points awarded? Will the First-Aid Kit be repositioned?\hfill[2]
+	\item Medbot picks a First-Aid Kit from the shelf of Medical Store but the First-Aid Kit and the Medbot both fall outside the store. Will there be any penalty imposed, points awarded? Will the First-Aid Kit be repositioned?\hfill[2]
+\end{enumerate}  
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+\begin{enumerate}[(a)]
+    \item There will be no penalty mentioned in rulebook. The First-Aid kit will be repositioned back to the respective shelf.
+    \item There will be no penalty mentioned in rulebook. The First-Aid kit will be repositioned back to the respective shelf.
+    \item If the bot Medbot falls the penalty will be
+    \begin{equation*}
+        M_{FP} = 50 \times FC
+    \end{equation*}
+    where $FC$ is the count of fall of the Medbot during the run. The First-Aid kit will be repositioned back to the respective shelf.
+    \item If the bot Medbot falls the penalty will be
+    \begin{equation*}
+        M_{FP} = 50 \times FC
+    \end{equation*}
+    where $FC$ is the count of fall of the Medbot during the run. The First-Aid kit will be repositioned back to the respective shelf.
+\end{enumerate} 
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+What will be the points awarded if Medbot picks only one of the item from the medical store and repeatedly moves back and forth around the gravel pathway or the bridge for the entire run.   \hfill[4]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+If Medbot picks up only one item then marks for pick-up will be
+\begin{equation*}
+\begin{gathered}
+    M_{PU} = 20 \times PUC\\
+    M_{PU} = 20 \times 1 = 20
+\end{gathered}
+\end{equation*}
+For traversing gravel path or bridge, points will be awarded for maximum 3 times.\\
+For traversing gravel path with an item, the marks will be
+\begin{equation*}
+\begin{gathered}
+   M_G = 50 \times (0.5 * ERG + LRG)\\
+   M_G = 50 \times (0.5 * 0 + 3) = 150\\
+   or
+\end{gathered}
+\end{equation*}
+For traversing bridge with an item, the marks will be
+\begin{equation*}
+\begin{gathered}
+   M_B = 70 \times (0.5 * ERB + LRB)\\
+   M_B = 70 \times (0.5 * 0 + 3) = 210
+\end{gathered}
+\end{equation*}
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+  What are the different communication protocols you'll be using? Name the hardware interfaced related to each of the communication protocols. Explain how these communication protocols works and what are the differences between them. \hfill[8]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+
+For XBee to XBee communication we are using IEEE 802.15.4 protocol. For Xbee to Arduino we are using Serial communication with $Rx$ and $Tx$ pins.\\
+IEEE 802.15.4 is a technical standard which defines the operation of low-rate wireless personal area networks. It offers the fundamental lower network layers.\\
+Serial communication is the process of sending data one bit at a time, sequentially, over a communication channel or computer bus.
+
+
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\BQ
+Why do we require IRF540N? Provide circuit diagram for interfacing IRF540N with the microcontroller. \hfill[5+5]
+\EQ
+\vspace{5mm}
+\BA
+%Write Your Answer Below This
+In this case we are using IRF540N mosfet as a switch. We have used it to turn the electromagnet on and off. We can provide 12V supply to Electromagnet through source and drain. When we apply signal at the gate terminal of IRF540N, the drain and source get connected.\\
+\hspace*{37mm}\includegraphics{irf540}\\
+R1 goes to any digital pin of Microcontroller from which we can control the mosfet as a switch.
+
+\EA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
